@@ -1,0 +1,157 @@
+/* --- CSS Variables (Customize Your Color Scheme) --- */
+:root {
+  --primary-color: #055a05;     /* Forest Green (Encabezados/Fondo) */
+  --secondary-color: #f4a261;   /* Warm Sand (Acentos) */
+  --accent1-color: #264653;     /* Dark Slate Blue (Texto Principal) */
+  --accent2-color: #e9c46a;     /* Light Golden Yellow (Highlights) */
+  --heading-font: "Georgia", serif;
+  --body-font: Arial, sans-serif;
+}
+
+/* --- Universal Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+/* --- Basic Styling and Layout --- */
+body {
+  font-family: var(--body-font);
+  color: var(--accent1-color);
+}
+
+/* Centrado del Contenido */
+header, main, footer {
+  width: 840px; 
+  margin: 0 auto; /* Centra el contenido */
+}
+
+/* --- HEADER Y NAVEGACIÓN (Asegura el espacio para el logo) --- */
+header {
+    background-color: var(--primary-color);
+    padding: 10px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+header img {
+    /* Asegura que el logo tenga suficiente espacio y se muestre correctamente */
+    width: 60px; 
+    height: auto;
+    min-width: 60px; /* Evita que el logo sea comprimido por la navegación */
+    display: block; 
+}
+
+nav a {
+    color: var(--accent2-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Headings */
+h1, h2 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  text-align: center;
+  padding: 16px 0;
+}
+
+/* Consistent Spacing for Content Blocks */
+p, section, article {
+  margin: 16px;
+  padding: 8px;
+}
+
+/* --- FOOTER (Corregido con Flexbox y alineación) --- */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Contenedor de iconos sociales (Asegura alineación) */
+.socialmedia {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+
+.socialmedia img {
+    width: 30px;
+    height: 30px; 
+    margin: 0; 
+}
+
+/* Elimina el subrayado de los iconos sociales */
+.socialmedia a {
+    text-decoration: none; 
+}
+
+/* --- Hero Div and Overlays (Posicionamiento y Correcciones de Desborde) --- */
+
+/* 1. Contenedor: Posicionamiento RELATIVO y Altura Mínima */
+.hero {
+  position: relative;
+  overflow: hidden; 
+  min-height: 400px; /* Asegura que haya espacio para los overlays */
+}
+
+/* 2. Imagen Hero: Ocupa todo el ancho */
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 400px; /* La imagen mantiene una altura mínima */
+    object-fit: cover; /* Asegura que la imagen llene el espacio sin distorsión */
+}
+
+/* 3. Título H1: Posicionamiento ABSOLUTO */
+.hero h1 {
+  position: absolute;
+  top: 20px; 
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  opacity: 0.85; 
+  background-color: var(--accent1-color);
+  color: #fff;
+  margin: 0; 
+  z-index: 10; /* Eleva el título */
+}
+
+/* 4. Artículo Misión: Posicionamiento ABSOLUTO (Corregido para el desborde) */
+.hero article {
+  position: absolute;
+  top: 100px; 
+  left: 5%; 
+  background-color: rgb(255 255 255 / 85%); 
+  padding: 20px;
+  width: 45%; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  /* CORRECCIÓN CLAVE PARA EL DESBORDE: Ajuste de Altura y Scroll */
+  max-height: 350px; /* Establece una altura máxima razonable */
+  overflow-y: auto; /* Permite desplazamiento si el texto es muy largo */
+}
+
+/* 5. Imagen del Artículo: Float DERECHA (Mejoras Visuales) */
+.hero article img {
+  float: right; 
+  width: 125px;
+  height: auto;
+  margin: 0 0 10px 15px; /* Espacio para separar la imagen del texto */
+  border: 3px solid var(--secondary-color); /* Borde de contraste */
+  border-radius: 5px; 
+}
